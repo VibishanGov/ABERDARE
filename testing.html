@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aberdare Cable Intranet</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom CSS -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            margin: 0px;
+            background: white;
+        }
+
+        /* Custom CSS styles */
+        .carousel {
+            margin-bottom: 20px;
+            width: 160%;
+            margin-top: 0%;
+        }
+
+        .header {
+            padding: 30px;
+            text-align: center;
+            background: white;
+        }
+
+        .header h1 {
+            font-size: 50px;
+        }
+
+
+        .leftcolumn {
+            float: left;
+            width: 75%;
+            /* background-color: #00adef; */
+            padding-right: 20px;
+            padding-left: 90px;
+            height: auto;
+            border-radius: 0 px;
+        }
+
+        .rightcolumn {
+            float: left;
+            width: 25%;
+            background-color: #00adef;
+            padding-left: 20px;
+            height: auto;
+            border-radius: 0 px;
+        }
+
+        .event-section {
+            width: 300px;
+            /* margin: 0 auto; */
+
+            text-align: left;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .event-section h3 {
+            text-align: left;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* customh3 {
+    text-align: left;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: 600;
+        } */
+
+        .event-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .event-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid whitesmoke;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .event-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            border: 1px solid whitesmoke;
+        }
+
+        .event-link {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .event-link:hover {
+            color: #007BFF;
+        }
+
+        .event-date {
+            font-size: 14px;
+            color: white;
+            margin-left: auto
+        }
+
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            /* margin: 10px; */
+            position: relative;
+            overflow: hidden;
+            flex: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: black;
+            /* White color for the section title */
+            font-weight: 600;
+            /* Semibold */
+        }
+
+        .card .card-body {
+            position: relative;
+            z-index: 1;
+            /* background-color: #00adef; */
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 0px;
+        }
+
+        .card .card-body h5.card-title {
+            margin-bottom: 10px;
+            font-weight: 600;
+
+        }
+
+        .card .card-body p.card-text {
+            margin-bottom: 15px;
+        }
+
+        .card .card-body a.btn-primary {
+            color: #fff;
+        }
+
+        .card:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px);
+            z-index: 0;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover::before {
+            transform: scale(1.1);
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .tools-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #00adef;
+            border-radius: 0px;
+        }
+
+        .tools-section h3 {
+            text-align: left;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .tool-item {
+            display: flex;
+            align-items: center;
+            background-color: #00adef;
+            padding: 15px;
+            border-radius: 0px;
+            flex: 0 0 calc(50% - 20px);
+            /* Two columns with gap of 20px */
+            max-width: calc(50% - 20px);
+            flex-direction: row-reverse;
+        }
+
+        .tool-item:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .tool-icon {
+            width: 40px;
+            height: 40px;
+            margin-left: 500px;
+        }
+
+        .tool-details {
+            flex: 1;
+            /* Take up remaining space */
+        }
+
+        .tool-title {
+            font-size: 16px;
+            margin: 0 0 10px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .news-section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #00adef;
+            border-radius: 0px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-section h3 {
+            text-align: left;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .news-card {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .news-card-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card-title {
+            font-size: 20px;
+            margin: 0 0 10px;
+        }
+
+        .news-card-date {
+            font-size: 14px;
+            color: #888;
+            margin: 0 0 10px;
+        }
+
+        .news-card-text {
+            font-size: 16px;
+            color: #333;
+            margin: 0 0 20px;
+        }
+
+        .news-card-link {
+            align-self: flex-start;
+            padding: 8px 16px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .news-card-link:hover {
+            background-color: #0056b3;
+        }
+
+
+        .row::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Footer styles */
+        .social-media-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            color: black;
+            text-decoration: none;
+            font-size: 24px;
+            /* Ensure the font size is large enough */
+            transition: background-color 0.3s ease;
+        }
+
+        .social-button.facebook {
+            background-color: #3b5998;
+        }
+
+        .social-button.twitter {
+            background-color: #55acee;
+        }
+
+        .social-button.linkedin {
+            background-color: #0077b5;
+        }
+
+        .social-button:hover {
+            opacity: 0.7;
+        }
+
+        .company-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #00adef;
+            border-radius: 0px;
+        }
+
+        .company-section h3 {
+            text-align: left;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .company-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .company-item {
+            display: flex;
+            align-items: center;
+            background-color: #00adef;
+            padding: 15px;
+            border-radius: 0px;
+            flex: 0 0 calc(50% - 20px);
+            /* Two columns with gap of 20px */
+            max-width: calc(50% - 20px);
+            flex-direction: row-reverse;
+        }
+
+        .company-item:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .company-icon {
+            width: 100px;
+            height: 70px;
+            margin-left: 15px;
+        }
+
+        .company-details {
+            flex: 1;
+            /* Take up remaining space */
+        }
+
+        .company-title {
+            font-size: 16px;
+            margin: 0 0 10px;
+            color: white;
+            font-weight: 600px;
+        }
+
+        .site-footer {
+            background-color: #626262;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 15px;
+        }
+
+        .footer-links,
+        .footer-contact {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        h3 {
+            margin-top: 0;
+        }
+
+        /* Responsive layout for smaller screens */
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links,
+            .footer-contact {
+                min-width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+
+            .leftcolumn,
+            .rightcolumn {
+                width: 100%;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <img src="https://aberdare.co.za/wp-content/uploads/2019/05/Aberdare-hi-res-400.png">
+        </div>
+        <!-- Header content like logo and navigation -->
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container">
+                <a class="navbar-brand" href="#">Aberdare Cable Intranet</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownHome" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Our Company
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownHome">
+                                <li><a class="dropdown-item" href="#">Company Overview</a></li>
+                                <li><a class="dropdown-item" href="#">Mission and Core Values</a></li>
+                                <li><a class="dropdown-item" href="#">Strategic Drivers</a></li>
+                                <li><a class="dropdown-item" href="#">BBBEE Certificate</a></li>
+                                <li><a class="dropdown-item" href="#">Partners and Alliances</a></li>
+                                <li><a class="dropdown-item" href="#">Product and Services</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAbout" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Communications
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
+                                <li><a class="dropdown-item" href="#">Company Information</a></li>
+                                <li><a class="dropdown-item" href="#">Corporate Identity</a></li>
+                                <li><a class="dropdown-item" href="#">High Voltage Launch(Picture)</a></li>
+                                <li><a class="dropdown-item" href="#">High Voltage Construction(Video)</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownServices" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                AIMS - PP
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownServices">
+                                <li><a class="dropdown-item" href="#">Group</a></li>
+                                <li><a class="dropdown-item" href="#">GOC</a></li>
+                                <li><a class="dropdown-item" href="#">STD</a></li>
+                                <li><a class="dropdown-item" href="#">PMB</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownContact" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                AMIS- Dept
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownContact">
+                                <li><a class="dropdown-item" href="#">Aberdare Strat</a></li>
+                                <li><a class="dropdown-item" href="#">Aberdare Engineering</a></li>
+                                <li><a class="dropdown-item" href="#">Finance</a></li>
+                                <li><a class="dropdown-item" href="#">Micro-Innovations</a></li>
+                                <li><a class="dropdown-item" href="#">HR</a></li>
+                                <li><a class="dropdown-item" href="#">Procurement</a></li>
+                                <li><a class="dropdown-item" href="#">SHERQ</a></li>
+                                <li><a class="dropdown-item" href="#">STD Mng Reports</a></li>
+                                <li><a class="dropdown-item" href="#">Sustainability</a></li>
+                                <li><a class="dropdown-item" href="#">Technical</a></li>
+                                <li><a class="dropdown-item" href="#">IT</a></li>
+                                <li><a class="dropdown-item" href="#">MSD</a></li>
+                                <li><a class="dropdown-item" href="#">Lean 6 Sigma</a></li>
+                                <li><a class="dropdown-item" href="#">Production Planning</a></li>
+                                <li><a class="dropdown-item" href="#">HT Internal Auditors</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownContact" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                General
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownContact">
+                                <li><a class="dropdown-item" href="#">AberTrack Portal</a></li>
+                                <li><a class="dropdown-item" href="#">Success Factors</a></li>
+                                <li><a class="dropdown-item" href="#">Asibambane</a></li>
+                                <li><a class="dropdown-item" href="#">Batch Search</a></li>
+                                <li><a class="dropdown-item" href="#">Change Proposal</a></li>
+                                <li><a class="dropdown-item" href="#">CRM Dashboard</a></li>
+                                <li><a class="dropdown-item" href="#">HengTong Visit</a></li>
+                                <li><a class="dropdown-item" href="#">Qlikview</a></li>
+                                <li><a class="dropdown-item" href="#">Micro Micro-Innovations</a></li>
+                                <li><a class="dropdown-item" href="#">CRM</a></li>
+                                <li><a class="dropdown-item" href="#">Talent Team FIG</a></li>
+                                <li><a class="dropdown-item" href="#">Cable Builder</a></li>
+                                <li><a class="dropdown-item" href="#">HR Disciplinary</a></li>
+                                <li><a class="dropdown-item" href="#">Ithuba Lethu</a></li>
+                                <li><a class="dropdown-item" href="#">MES Add. Reports</a></li>
+                                <li><a class="dropdown-item" href="#">MES Plant Maintenance</a></li>
+                                <li><a class="dropdown-item" href="#">SCCM Reports</a></li>
+                                <li><a class="dropdown-item" href="#">STD Absenteeism</a></li>
+                                <li><a class="dropdown-item" href="#">Techincal Query</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownContact" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Contact and Support
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownContact">
+                                <li><a class="dropdown-item" href="#">IT Helpdesk</a></li>
+                                <li><a class="dropdown-item" href="#">Directory</a></li>
+                                <li><a class="dropdown-item" href="#">SMS</a></li>
+                                <li><a class="dropdown-item" href="#">Systems Support</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownContact" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                E-Learning
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownContact">
+                                <li><a class="dropdown-item" href="#">High Voltage Power Cable Systems E-Learnig</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <!-- Left Two-Thirds: Carousel, Event Section, Clickable Blocks -->
+                                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="C:\Users\Lesedi.Kwenamore\Downloads\Lesedi Altron images for design concepts\Aberdare_Banner.jpg"
+                                                class="d-block w-100" alt="Slide 1">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="C:\Users\Lesedi.Kwenamore\Downloads\Lesedi Altron images for design concepts\banner20-1-scaled-1.jpg"
+                                                class="d-block w-100" alt="Slide 2">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="C:\Users\Lesedi.Kwenamore\Downloads\Lesedi Altron images for design concepts\banner21-scaled-1.jpg"
+                                                class="d-block w-100" alt="Slide 3">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="C:\Users\Lesedi.Kwenamore\Downloads\Lesedi Altron images for design concepts\banner22-scaled.jpg"
+                                                class="d-block w-100" alt="Slide 4">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="C:\Users\Lesedi.Kwenamore\Downloads\Lesedi Altron images for design concepts\ECom-2500wx718hmmWebsiteBanner2_small-scaled-1.jpg"
+                                                class="d-block w-100" alt="Slide 5">
+                                        </div>
+                                    </div>
+                                    <!-- Controls -->
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                                <div class="container">
+                                    <h3 class="section-title">Sectors</h3>
+                                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                                        <div class="col">
+                                            <div class="card h-100" style=" background: url(
+                                                'https://aberdare.co.za/wp-content/uploads/2017/11/cables-for-agriculture.jpg');
+                                                            background-repeat: no-repeat;
+                                                            background-size: auto;">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Agricultural</h5>
+                                                    <p class="card-text">Submersible Pump Cable,Bells & Mains,Armadac
+                                                    </p>
+                                                    <a href="#" class="btn btn-primary">Learn More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card h-100" style="background: url(
+                                                'https://aberdare.co.za/wp-content/uploads/2017/11/cables-for-non-residential.jpg');
+                                                            background-repeat: no-repeat;
+                                                            background-size: auto;">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Building & Contruction (Non Residential)</h5>
+                                                    <p class="card-text">Bare Copper Cable,Bells & Mains,Paper insulated
+                                                        lead cable,Vultex XLPE</p>
+                                                    <a href="#" class="btn btn-primary">Learn More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card h-100" style="background: url(
+                                                'https://aberdare.co.za/wp-content/uploads/2017/11/cables-for-residential.jpg');
+                                                            background-repeat: no-repeat;
+                                                            background-size: auto;">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Building & Contruction (Residential)</h5>
+                                                    <p class="card-text">Flat Twin & Earth,Surfix Cable,Bells & Mains
+                                                    </p>
+                                                    <a href="#" class="btn btn-primary">Learn More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card h-100" style="background: url(
+                                                'https://aberdare.co.za/wp-content/uploads/2017/11/cables-for-mining.jpg');
+                                                            background-repeat: no-repeat;
+                                                            background-size: auto;">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Mining</h5>
+                                                    <p class="card-text">Paper (PILC),Elastomeric</p>
+                                                    <a href="#" class="btn btn-primary">Learn More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card h-100" style="background: url(
+                                                'https://aberdare.co.za/wp-content/uploads/2017/11/cables-for-transport.jpg');
+                                                            background-repeat: no-repeat;
+                                                            background-size: auto;">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Transport</h5>
+                                                    <p class="card-text">Bells & Mains,Airfield Lighting Cable,Railway
+                                                        Cable</p>
+                                                    <a href="#" class="btn btn-primary">Learn More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card h-100" style="background: url(
+                                                'https://aberdare.co.za/wp-content/uploads/2017/11/cables-for-non-residential.jpg');
+                                                            background-repeat: no-repeat;
+                                                            background-size: auto;">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Renewables</h5>
+                                                    <p class="card-text">Single Core XLPE,Renewable Energy Projects</p>
+                                                    <a href="#" class="btn btn-primary">Learn More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card h-100" style="background: url(
+                                                'https://aberdare.co.za/wp-content/uploads/2017/11/cables-for-renewables.jpg');
+                                                            background-repeat: no-repeat;
+                                                            background-size: auto;">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Municipalities</h5>
+                                                    <p class="card-text">Paper (PILC),Bells & Mains,Single Core
+                                                        XLPE,Aerial Bundle Conductor,Vultex XLPE</p>
+                                                    <a href="#" class="btn btn-primary">Learn More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card h-100" style="background: url(
+                                                'https://aberdare.co.za/wp-content/uploads/2017/11/cables-for-OEM.jpg');
+                                                            background-repeat: no-repeat;
+                                                            background-size: auto;">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">OEM</h5>
+                                                    <p class="card-text">Cabtyre Cable,Audio Cord,HRQ insulated,Panel
+                                                        Flex Single Core Cable</p>
+                                                    <a href="#" class="btn btn-primary">Learn More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card h-100" style="background: url(
+                                                'https://aberdare.co.za/wp-content/uploads/2017/11/cables-for-power-utilities.jpg');
+                                                            background-repeat: no-repeat;
+                                                            background-size: auto;">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Power Utilities</h5>
+                                                    <p class="card-text">Overhead,ABC,Airdac SNE & CNE,Single core
+                                                        XLPE,Bells & Mains</p>
+                                                    <a href="#" class="btn btn-primary">Learn More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card h-100" style="background: url(
+                                                'https://aberdare.co.za/wp-content/uploads/2017/11/cables-for-retail.jpg');
+                                                            background-repeat: no-repeat;
+                                                            background-size: auto;">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Retail</h5>
+                                                    <p class="card-text">Audio Cord,Cabtyre Cable,HRQ,Panel Flex
+                                                        Cable,Flat Twin & Earth,Surfix,Bells & Mains</p>
+                                                    <a href="#" class="btn btn-primary">Learn More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="rightcolumn">
+            <div class="news-section">
+                <div class="customh3">
+                    <h3>Upcoming Events</h3>
+                </div>
+                <ul class="event-list">
+                    <li class="event-item">
+                        <img src="https://static.vecteezy.com/system/resources/previews/002/050/653/non_2x/calendar-and-pencil-on-blue-background-photo.jpg"
+                            class="event-icon">
+                        <div class="event-info">
+                            <a href="https://example.com/event1" class="event-link">Aberdare Monthly Results</a>
+                            <span class="event-date">June 13, 2024</span>
+                        </div>
+                    </li>
+                    <li class="event-item">
+                        <img src="https://static.vecteezy.com/system/resources/previews/002/050/653/non_2x/calendar-and-pencil-on-blue-background-photo.jpg"
+                            class="event-icon">
+                        <div class="event-info">
+                            <a href="https://example.com/event2" class="event-link">Aberdare Cables Reports </a>
+                            <span class="event-date">June 29, 2024</span>
+                        </div>
+                    </li>
+                    <li class="event-item">
+                        <img src="https://static.vecteezy.com/system/resources/previews/002/050/653/non_2x/calendar-and-pencil-on-blue-background-photo.jpg"
+                            class="event-icon">
+                        <div class="event-info">
+                            <a href="https://example.com/event3" class="event-link">Aberdare Engineering Exco </a>
+                            <span class="event-date">July 4, 2024</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="news-section">
+                <h3>Useful Tools</h3>
+                <div class="tools-list">
+                    <div class="tool-item">
+                        <div class="tool-details">
+                            <h5 class="tool-title">Leave Request</h5>
+                        </div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1P92YZkFgbPuxXBJg9nCVAmnamWrFWrxHwQ&s"
+                            class="tool-icon">
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-details">
+                            <h5 class="tool-title">Shared Drive</h5>
+                        </div>
+                        <img src="https://st.depositphotos.com/47577860/53439/v/450/depositphotos_534391162-stock-illustration-connection-directory-file-icon-outline.jpg"
+                            class="tool-icon">
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-details">
+                            <h5 class="tool-title">Travel Form</h5>
+                        </div>
+                        <img src="https://static.vecteezy.com/system/resources/previews/019/494/001/original/travel-icon-illustration-airplane-icon-with-earth-icon-related-to-transportation-tourism-travel-line-icon-style-simple-design-editable-vector.jpg"
+                            class="tool-icon">
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-details">
+                            <h5 class="tool-title">Time Tracking</h5>
+                        </div>
+                        <img src="https://w7.pngwing.com/pngs/133/225/png-transparent-timesheet-computer-icons-time-tracking-software-property-icon-angle-text-rectangle-thumbnail.png"
+                            class="tool-icon">
+                    </div>
+                </div>
+            </div>
+            <div class="news-section">
+                <h3>Internal News</h3>
+                <div class="news-card">
+                    <div class="news-card-body">
+                        <h4 class="news-card-title">Aberdare Cables shines at the China Job Fair 2024</h4>
+                        <p class="news-card-date">Published: May 15, 2024</p>
+                        <p class="news-card-text">Coverage on Aberdare attendance at the China Job Fair 2024 Aberdare
+                            Cables proudly represented itself at the prestigious China Job Fair 2024, held […]</p>
+                        <a href="#" class="news-card-link">Read More</a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-card-body">
+                        <h4 class="news-card-title">Solar cable awarded certification by Conformity Internationaln</h4>
+                        <p class="news-card-date">Published: June 15, 2024</p>
+                        <p class="news-card-text">Solar cable awarded certification by Conformity International Aberdare
+                            Cables is the largest cable manufacturer in South Africa. Recently Aberdare Cables has
+                            expanded its […]</p>
+                        <a href="#" class="news-card-link">Read More</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="youtube-video">
+                <!-- YouTube video embed -->
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/2a84ebQDVL0?si=8ISA0gzAV1A2v3k5"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-links">
+                <h3>Social Media Platforms</h3>
+                <div class="social-media-buttons">
+                    <ul>
+                        <a href=" https://www.facebook.com/AberdareCablesOfficial" class="social-button facebook"
+                            target="_blank"><i class="fa fa-facebook-f"></i></a>
+                        <a href="https://x.com/AberdareCables_" class="social-button twitter" target="_blank"><i
+                                class="fa fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/aberdare-cables-ptyltd/"
+                            class="social-button linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h3>Other companies</h3>
+                <ul>
+                    <a href="https://amhengtong.co.za/" target="_blank"><img
+                            src="C:\Users\Lesedi.Kwenamore\Downloads\Lesedi Altron images for design concepts\AMHT-LOGO-995x400-1.png"
+                            alt="AMHT" class="company-icon"></a>
+                    <a href="http://www.hengtonggroup.com/en/" target="_blank"><img
+                            src="C:\Users\Lesedi.Kwenamore\Downloads\Lesedi Altron images for design concepts\Hengtong-Group.jpg"
+                            alt="Hengtong Group" class="company-icon"></a>
+                    <a href="https://safehousesa.co.za/" target="_blank"><img
+                            src="C:\Users\Lesedi.Kwenamore\Downloads\Lesedi Altron images for design concepts\Safe-House-Logo.jpg"
+                            alt="SafeHouse" class="company-icon"></a>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
