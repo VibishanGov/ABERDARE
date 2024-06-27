@@ -435,7 +435,8 @@
         }
 
         .site-footer {
-            background-color: #626262;
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(98,98,98,0.6475840336134453) 100%, rgba(98,98,98,1) 100%);
             color: white;
             padding: 20px ;
             padding-left: 1px;
@@ -492,6 +493,12 @@
                 width: 100%;
                 padding: 0;
             }
+        }
+
+        .footerpic{
+            padding: 5%;
+            position: relative;
+            align-items: center;
         }
     </style>
 </head>
@@ -672,7 +679,7 @@
         <div class="leftcolumn">
             <div class="">
                 <div class="card-body">
-                    <div class="container">
+                    <div class="container" style="height: 50%;">
                         <div class="row">
                             <div class="col-md-8">
                                 <!-- Left Two-Thirds: Carousel, Event Section, Clickable Blocks -->
@@ -813,6 +820,21 @@
                             </div>
                         </div>
                     </div>
+                    <div class="container">
+                        <div class="container">
+                            <h3 class="section-title">Learn More</h3>
+                        </div>
+
+                        
+                        <div class="youtube-video">
+                            <!-- YouTube video embed -->
+                            <iframe width="350%" height="250%" src="https://www.youtube.com/embed/2a84ebQDVL0?si=8ISA0gzAV1A2v3k5"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+            
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -919,14 +941,7 @@
                 </div>
 
             </div>
-            <div class="youtube-video">
-                <!-- YouTube video embed -->
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/2a84ebQDVL0?si=8ISA0gzAV1A2v3k5"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
-
-            </div>
+           
         </div>
     </div>
     </div>
@@ -942,31 +957,41 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-links">
-                <h3>Social Media Platforms</h3>
-                <div class="social-media-buttons">
-                    <ul>
-                        <a href=" https://www.facebook.com/AberdareCablesOfficial" class="social-button facebook"
-                            target="_blank"><i class="fa fa-facebook-f"></i></a>
-                        <a href="https://x.com/AberdareCables_" class="social-button twitter" target="_blank"><i
-                                class="fa fa-twitter"></i></a>
-                        <a href="https://www.linkedin.com/company/aberdare-cables-ptyltd/"
-                            class="social-button linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
-                    </ul>
+                <div style="padding-top: 5%;">
+                    <h3>Social Media Platforms</h3>
                 </div>
+                <div class="footerpic">
+                    <div class="social-media-buttons">
+                        <ul>
+                            <a href=" https://www.facebook.com/AberdareCablesOfficial" class="social-button facebook"
+                                target="_blank"><i class="fa fa-facebook-f"></i></a>
+                            <a href="https://x.com/AberdareCables_" class="social-button twitter" target="_blank"><i
+                                    class="fa fa-twitter"></i></a>
+                            <a href="https://www.linkedin.com/company/aberdare-cables-ptyltd/"
+                                class="social-button linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        </ul>
+                    </div>
+                </div>
+                
             </div>
             <div class="footer-contact">
-                <h3>Other companies</h3>
-                <ul>
-                    <a href="https://amhengtong.co.za/" target="_blank"><img
-                            src="libary/footer/AMHT-LOGO-995x400-1.png"
-                            alt="AMHT" class="company-icon"></a>
-                    <a href="http://www.hengtonggroup.com/en/" target="_blank"><img
-                            src="libary/footer/Hengtong-Group.jpg"
-                            alt="Hengtong Group" class="company-icon"></a>
-                    <a href="https://safehousesa.co.za/" target="_blank"><img
-                            src="libary/footer/Safe-House-Logo.jpg"
-                            alt="SafeHouse" class="company-icon"></a>
-                </ul>
+                <div style="padding-top: 5%;">
+                    <h3>Other companies</h3>
+                </div>
+                <div class="footerpic">
+                    <ul>
+                        <a href="https://amhengtong.co.za/" target="_blank"><img
+                                src="libary/footer/AMHT-LOGO-995x400-1.png"
+                                alt="AMHT" class="company-icon"></a>
+                        <a href="http://www.hengtonggroup.com/en/" target="_blank"><img
+                                src="libary/footer/Hengtong-Group.jpg"
+                                alt="Hengtong Group" class="company-icon"></a>
+                        <a href="https://safehousesa.co.za/" target="_blank"><img
+                                src="libary/footer/Safe-House-Logo.jpg"
+                                alt="SafeHouse" class="company-icon"></a>
+                    </ul>
+                </div>
+                
             </div>
         </div>
     </footer>
